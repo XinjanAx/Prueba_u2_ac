@@ -58,18 +58,13 @@ public class PacienteRepositoryImpl implements IPacienteRepository {
 	}
 
 	@Override
-	public void reportePaciente(LocalDateTime fecha, String genero) {
+	public List<PacienteTo> reportePaciente(LocalDateTime fecha, String genero) {
 		// TODO Auto-generated method stub
-		if (fecha.isAfter(LocalDateTime.now())) {
 		TypedQuery<PacienteTo> myQuery = this.entityManager.createQuery(
-				"SELECT NEW ec.edu.uce.modelo.PacienteTO(p.cedula,p.nombre,p.fechaNacimiento,p.genero) FROM Paciente p JOIN p.citaMedicas c WHERE p.fechaNacimiento >:fecha AND p.genero =:genero",
+				"SELECT NEW com.uce.demo2.prueba.modelo.PacienteTo(p.cedula,p.nombre,p.fechaNacimiento,p.genero) FROM Paciente p JOIN p.citaMedicas c WHERE p.fechaNacimiento >:fecha AND p.genero =:genero",
 				PacienteTo.class);
 		myQuery.setParameter("fecha", fecha);
 		myQuery.setParameter("genero", genero);
-		List<PacienteTo> reporte = myQuery.getResultList();
-		Log.info(reporte);
-		} else {
-			Log.warn("Error: error con la fecha al agendar");
-		}
+		return myQuery.getResultList();
 	}
 }

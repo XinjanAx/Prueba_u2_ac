@@ -49,6 +49,8 @@ public class Paciente {
 	@OneToMany(mappedBy = "paciente")
 	private List<CitaMedica> citaMedicas;
 
+	
+	
 // get set
 	public Integer getId() {
 		return id;

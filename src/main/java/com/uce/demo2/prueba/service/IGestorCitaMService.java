@@ -7,7 +7,7 @@ public interface IGestorCitaMService {
 	
 	public void  agendamientoCitaMedica(String numeroCita, LocalDateTime fechaCita, BigDecimal valorCita, String lugarCita, String cedulaDoctor, String cedulaPaciente);
 	
-	public void actualizarCitaM();
+	public void actualizarCitaM(String numeroCitaM, String diagnopstico , LocalDateTime nuevaFecha);
 
 	public void reportePaciente(LocalDateTime fecha, String genero);
 }

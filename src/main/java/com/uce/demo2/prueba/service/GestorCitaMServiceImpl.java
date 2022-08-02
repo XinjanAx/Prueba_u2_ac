@@ -3,6 +3,8 @@ package com.uce.demo2.prueba.service;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,8 @@ import com.uce.demo2.prueba.modelo.CitaMedica;
 
 @Service
 public class GestorCitaMServiceImpl implements IGestorCitaMService{
+
+	Logger Log = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
 
 	@Autowired
 	private ICitaMedicaService citaMService;
@@ -38,15 +42,18 @@ public class GestorCitaMServiceImpl implements IGestorCitaMService{
 
 
 	@Override
-	public void actualizarCitaM() {
+	public void actualizarCitaM(String numeroCitaM, String diagnopstico , LocalDateTime nuevaFecha){
 		// TODO Auto-generated method stub
-		
+		CitaMedica cm = this.citaMService.buscarPorNuemro(numeroCitaM);
+		cm.setDiagnostico(diagnopstico);
+		cm.setFechaProximaCita(nuevaFecha);
+		this.citaMService.actualizarCitaM(cm);
 	}
 
 	@Override
 	public void reportePaciente(LocalDateTime fecha, String genero) {
 		// TODO Auto-generated method stub
-		this.pacienteService.reportePaciente(fecha, genero);
+		Log.info("\n"+this.pacienteService.reportePaciente(fecha, genero));
 	}
 
 }

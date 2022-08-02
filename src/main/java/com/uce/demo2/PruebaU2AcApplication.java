@@ -63,13 +63,13 @@ public class PruebaU2AcApplication implements CommandLineRunner {
 		this.doctorService.insertarDoctor(d2);
 		
 		Paciente p1 = new Paciente();
-		p1.setCedula("1789933591");
-		p1.setNombre("Ruben");
-		p1.setApellido("Blades");
-		p1.setFechaNacimiento(LocalDateTime.of(1998, 2, 8, 12, 45));
-		p1.setCodigoSeguro("_8541");
+		p1.setCedula("1774641523");
+		p1.setNombre("Dario");
+		p1.setApellido("Sanchez");
+		p1.setFechaNacimiento(LocalDateTime.of(2000, 2, 5, 12, 45));
+		p1.setCodigoSeguro("_0471");
 		p1.setEstatura(1.8);
-		p1.setPeso(67.0);
+		p1.setPeso(74.0);
 		p1.setGenero("Masculino");
 		
 		this.iPacienteService.insertarPaciente(p1);
@@ -88,8 +88,9 @@ public class PruebaU2AcApplication implements CommandLineRunner {
 		
 		this.citaMService.agendamientoCitaMedica("_004", LocalDateTime.now(), new BigDecimal(33.5), "Quito", "1257448753", "1799564862");
 		
-		this.citaMService.reportePaciente(LocalDateTime.now(), "Femenino");
-		
+		this.citaMService.actualizarCitaM("_004", "Covid-19", LocalDateTime.now());
+		this.citaMService.reportePaciente(LocalDateTime.of(1990, 8, 8, 12, 45), "Femenino");
+
 	}
 
 }

@@ -1,8 +1,10 @@
 package com.uce.demo2.prueba.repository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.uce.demo2.prueba.modelo.Paciente;
+import com.uce.demo2.prueba.modelo.PacienteTo;
 
 public interface IPacienteRepository {
 
@@ -16,6 +18,6 @@ public interface IPacienteRepository {
 
 	public Paciente buscarPacientePorCedula(String cedula);
 	
-	public void reportePaciente(LocalDateTime fecha, String genero);
+	public List<PacienteTo> reportePaciente(LocalDateTime fecha, String genero);
 
 }

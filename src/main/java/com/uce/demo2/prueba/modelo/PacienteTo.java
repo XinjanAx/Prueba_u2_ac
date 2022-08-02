@@ -21,7 +21,7 @@ public class PacienteTo {
 
 	@Override
 	public String toString() {
-		return "\nPacienteTO cedula:" + cedula + ", " + nombre + ", fecha de Nacimiento: " + fechaNacimiento
+		return "\nPacienteTo cedula:" + cedula + ", " + nombre + ", fecha de Nacimiento: " + fechaNacimiento
 				+ ", genero: " + genero;
 	}
 

@@ -1,11 +1,13 @@
 package com.uce.demo2.prueba.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.uce.demo2.prueba.modelo.Paciente;
+import com.uce.demo2.prueba.modelo.PacienteTo;
 import com.uce.demo2.prueba.repository.IPacienteRepository;
 
 @Service
@@ -44,9 +46,9 @@ public class PacienteServiceImpl implements IPacienteService{
 	}
 
 	@Override
-	public void reportePaciente(LocalDateTime fecha, String genero) {
+	public List<PacienteTo> reportePaciente(LocalDateTime fecha, String genero) {
 		// TODO Auto-generated method stub
-		this.iPacienteRepository.reportePaciente(fecha, genero);
+		return this.iPacienteRepository.reportePaciente(fecha, genero);
 	}
 
 }
